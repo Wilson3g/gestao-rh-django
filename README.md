@@ -8,11 +8,11 @@ API para gerência de RH
 
 # install
 
-$ git clone git@github.com:Wilson3g/gestao-rh-api.git
-$ pipenv install
+1. $ git clone git@github.com:Wilson3g/gestao-rh-api.git
+2. $ pipenv install
 
 # run
 
-$ pipenv shell
-$ python manage.py migrate
-$ python manage.py runserver
+1. $ pipenv shell
+2. $ python manage.py migrate
+3. $ python manage.py runserver
