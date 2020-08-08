@@ -4,11 +4,11 @@
     <a href="{% url 'logout' %}">Logout</a>
 
     <p>Olá {{ usuario.funcionario.nome }}</p>
-
-    {% if usuario.funcionario.empresa %}
-        <a href="">Editar empresa</a>
+    {{ usuario.funcionario.empresa.nome }}
+    {% if usuario.funcionario.empresas %}
+        <a href="{% url 'edit_empresa' usuario.funcionario.empresas.id %}">Editar empresa</a>
     {% else %}
-        <a href="">Criar empresa</a>
+        <a href="{% url 'create_empresa' %}">Criar empresa</a>
     {% endif %}
 
 {% endblock %}
