@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 
 {% block main %}
-Seja bem vindo
-<a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'logout' %}">Logout</a>
+
+    <p>Olá {{ usuario.funcionario.nome }}</p>
+
+    {% if usuario.funcionario.empresa %}
+        <a href="">Editar empresa</a>
+    {% else %}
+        <a href="">Criar empresa</a>
+    {% endif %}
+
 {% endblock %}
