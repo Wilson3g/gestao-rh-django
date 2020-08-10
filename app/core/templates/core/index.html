@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    <a href="{% url 'logout' %}">Logout</a>
+    <div class="row">
+        <div class="col-4">
+            <p>Olá {{ usuario.funcionario.nome }}</p>
+            {{ usuario.funcionario.empresa.nome }}
+            <a href="{% url 'list_funcionarios' %}">Gerenciar funcionario</a>
+        </div>
+        <div class="col-4">
+            {% if usuario.funcionario.empresas %}
+                <a href="{% url 'edit_empresa' usuario.funcionario.empresas.id %}">Editar empresa</a>
+            {% else %}
+                <a href="{% url 'create_empresa' %}">Criar empresa</a>
+            {% endif %}
+        </div>
+        <div class="col-4">
+            <a href="{% url 'logout' %}">Logout</a>            
+        </div>
+    </div>
 
-    <p>Olá {{ usuario.funcionario.nome }}</p>
-    {{ usuario.funcionario.empresa.nome }}
-    {% if usuario.funcionario.empresas %}
-        <a href="{% url 'edit_empresa' usuario.funcionario.empresas.id %}">Editar empresa</a>
-    {% else %}
-        <a href="{% url 'create_empresa' %}">Criar empresa</a>
-    {% endif %}
 
 {% endblock %}
