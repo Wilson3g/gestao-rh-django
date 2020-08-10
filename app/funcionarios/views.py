@@ -1,7 +1,26 @@
 from django.http import HttpResponse
-from django.views.generic import ListView, UpdateView, DeleteView
+from django.views.generic import (
+    ListView, 
+    UpdateView, 
+    DeleteView, 
+    CreateView
+)
 from .models import Funcionario
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
+
+
+class FuncionarioCreate(CreateView):
+    model = Funcionario
+    fields = ['nome', 'departamentos']
+
+    def form_valid(self, form):
+        funcionario = form.save(commit=False)
+        username = funcionario.nome.split(' ')[0] + funcionario.nome.split(' ')[1]
+        funcionario.empresas = self.request.user.funcionario.empresas
+        funcionario.user = User.objects.create(username=username)
+        funcionario.save()
+        return super(FuncionarioCreate, self).form_valid(form)
 
 
 class FuncionariosList(ListView):
@@ -16,6 +35,7 @@ class FuncionariosList(ListView):
 class FuncionarioEdit(UpdateView):
     model = Funcionario
     fields = ['nome', 'departamentos']
+
 
 class FuncionarioDelete(DeleteView):
     model = Funcionario
