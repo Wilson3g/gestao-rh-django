@@ -20,7 +20,8 @@ INSTALLED_APPS = [
     'app.departamentos',
     'app.documentos',
     'app.registro_horas_extras',
-    'app.core'
+    'app.core',
+    'bootstrapform'
 ]
 
 MIDDLEWARE = [

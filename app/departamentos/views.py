@@ -25,7 +25,7 @@ class DepartamentosCreate(CreateView):
         departamento = form.save(commit=False)
         departamento.empresa = self.request.user.funcionario.empresas
         departamento.save()
-        return super(DepartamentoCreate, self).form_valid(form)
+        return super(DepartamentosCreate, self).form_valid(form)
 
 
 class DepartamentosEdit(UpdateView):

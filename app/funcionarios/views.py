@@ -12,7 +12,7 @@ from django.contrib.auth.models import User
 
 class FuncionarioCreate(CreateView):
     model = Funcionario
-    fields = ['nome', 'departamentos']
+    fields = ['nome', 'Departamentos']
 
     def form_valid(self, form):
         funcionario = form.save(commit=False)
@@ -34,7 +34,7 @@ class FuncionariosList(ListView):
 
 class FuncionarioEdit(UpdateView):
     model = Funcionario
-    fields = ['nome', 'departamentos']
+    fields = ['nome', 'Departamentos']
 
 
 class FuncionarioDelete(DeleteView):

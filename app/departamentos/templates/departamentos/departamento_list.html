@@ -1,11 +1,29 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    list
-    {% for departamento in object_list %}
+    
+    <a class="btn btn-info" href="{% url 'create_departamentos' %}"> Novo Departamento </a> <br>
+
+    <div class="row">
+        {% for departamento in object_list %}
+            <div class="col-3">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ departamento }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Descrição do funcionário</p>
+                        <a class="btn btn-success" href="{% url 'edit_departamentos' departamento.id %}">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'delete_departamentos' departamento.id %}"> deletar </a> <br>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- {% for departamento in object_list %}
         <a href="{% url 'edit_departamentos' departamento.id %}">{{ departamento }}</a>
         <a href="{% url 'delete_departamentos' departamento.id %}"> deletar </a> <br>
     {% endfor %}
 
-    <a href="{%url 'create_departamentos'%}"> Criar </a> <br>
+    <a href="{%url 'create_departamentos'%}"> Criar </a> <br> -->
 {% endblock %}
