@@ -1,5 +1,12 @@
 # gestao-rh-api
-API para gerência de RH
+Sisteam para gestão empresarial
+
+# tecnologias utilizadas
+
+1. Django
+2. HTML/CSS
+3. Bootstrap
+4. JavaScript
 
 # requirements
 
