@@ -5,7 +5,8 @@
         <div class="col-4">
             <p>Olá {{ usuario.funcionario.nome }}</p>
             {{ usuario.funcionario.empresa.nome }}
-            <a href="{% url 'list_funcionarios' %}">Gerenciar funcionario</a>
+            <a href="{% url 'list_funcionarios' %}">Gerenciar funcionarios</a>
+            <a href="{% url 'list_departamentos' %}">Gerenciar departamentos</a>
         </div>
         <div class="col-4">
             {% if usuario.funcionario.empresas %}
