@@ -1,7 +1,7 @@
 # gestao-rh-api
-Sisteam para gestão empresarial
+Sisteam for business management
 
-# tecnologias utilizadas
+# technologies used
 
 1. Django
 2. HTML/CSS
