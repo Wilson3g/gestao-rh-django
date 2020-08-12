@@ -2,11 +2,22 @@
 {% load bootstrap %}
 
 {% block main %}
-    <form method="post">
+
+{{ form.errors }}
+
+    <form class="mb-5" method="post">
         {% csrf_token %}
 
         {{ form|bootstrap }}
-
         <button class="btn btn-info" type="submit">Confirmar</button>
     </form>
+
+    {% if object %}
+        <a class="mt-5" href="{% url 'create_documento' object.id %}">Novo Documento</a>
+
+        {% for documento in object.documento_set.all %}
+            <a href="{{ documento.arquivo.url }}">{{ documento }}</a>
+        {% endfor %}
+    {% endif %}
+
 {% endblock %}

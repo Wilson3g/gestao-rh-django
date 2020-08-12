@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block main %}
+    <form class="mb-5" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form|bootstrap }}
+
+        <button class="btn btn-info" type="submit">Confirmar</button>
+    </form>
+{% endblock %}
