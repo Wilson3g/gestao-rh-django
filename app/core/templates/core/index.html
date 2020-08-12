@@ -7,6 +7,7 @@
             {{ usuario.funcionario.empresa.nome }}
             <a href="{% url 'list_funcionarios' %}">Gerenciar funcionarios</a>
             <a href="{% url 'list_departamentos' %}">Gerenciar departamentos</a>
+            <a href="{% url 'list_hora_extra' %}">Gerenciar banco de horas</a>
         </div>
         <div class="col-4">
             {% if usuario.funcionario.empresas %}
