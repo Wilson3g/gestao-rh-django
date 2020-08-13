@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <form method="post">
+        {% csrf_token %}
+        <h1>Você quer mesmo deletar o registro?</h1>
+        {{ form }}
+
+        <button type="submit">Confimar</button>
+    </form>
+{% endblock %}

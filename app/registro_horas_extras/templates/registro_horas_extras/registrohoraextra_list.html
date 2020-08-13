@@ -4,5 +4,6 @@
     <h1>Banco de horas</h1>
     {% for registro in object_list %}
         <a href="{% url 'edit_hora_extra' registro.id %}">{{ registro }}</a>
+        <a href="{% url 'delete_hora_extra' registro.id %}">Excluir</a>
     {% endfor %}
 {% endblock %}
