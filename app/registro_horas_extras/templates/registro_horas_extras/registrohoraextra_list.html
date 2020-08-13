@@ -2,8 +2,7 @@
 
 {% block main %}
     <h1>Banco de horas</h1>
-    {{object_list}}
     {% for registro in object_list %}
-        {{ registro }}
+        <a href="{% url 'edit_hora_extra' registro.id %}">{{ registro }}</a>
     {% endfor %}
 {% endblock %}
