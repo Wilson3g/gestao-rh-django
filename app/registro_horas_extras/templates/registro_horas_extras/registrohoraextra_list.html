@@ -6,4 +6,6 @@
         <a href="{% url 'edit_hora_extra' registro.id %}">{{ registro }}</a>
         <a href="{% url 'delete_hora_extra' registro.id %}">Excluir</a>
     {% endfor %}
+
+    <a href="{% url 'create_hora_extra' %}">Adicionar novo registro</a>
 {% endblock %}
