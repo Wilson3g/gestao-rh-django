@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    <h1 class="text-muted">Olá <strong>{{ usuario.funcionario.nome }} - {{ usuario.funcionario.empresas.nome }} </strong></h1>
+
+    {% if usuario.funcionario.nome %}
+    <h1 class="text-muted">Olá <strong>{{ usuario.funcionario.empresas.nome }} </strong></h1>
 
     <div class="row text-center mt-5">
         <div class="col-6">
@@ -43,6 +45,13 @@
             </div>
         </div>
     </div>
+
+    {% else %}
+        <h1 class="text-muted">Seja bem-vindo!</strong></h1>
+        <h3 class="text-muted">Para começar, vamos criar uma nova empresa.</h3>
+
+        <a class="btn btn-info mt-5" href="{% url 'create_empresa' %}">Criar empresa</a>
+    {% endif %}
 
 
 {% endblock %}
