@@ -13,11 +13,45 @@
     </form>
 
     {% if object %}
-        <a class="mt-5" href="{% url 'create_documento' object.id %}">Novo Documento</a>
+        <h2>Documentos do colaborador</h2>
+        <a class="btn btn-outline-info" href="{% url 'create_documento' object.id %}">Novo Documento</a>
 
-        {% for documento in object.documento_set.all %}
-            <a href="{{ documento.arquivo.url }}">{{ documento }}</a>
-        {% endfor %}
+        <div class="row mb-5">
+            {% for documento in object.documento_set.all %}
+                <div class="col-3">
+                    <a class="text-muted" href="{{ documento.arquivo.url }}">
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ documento }}</h5>
+                                <p class="card-text">{{ documento.arquivo }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <h2>Registro de horas extras</h2>
+        <h4 class="mb-3">Total de horas extras: {{ object.total_horas_extras }} horas</h4>
+        <a class="btn btn-outline-info" href="{% url 'create_hora_extra'%}">Novo Registro</a>
+        
+        <div class="row mb-5">
+            {% for registro_hora in object.registrohoraextra_set.all %}
+
+                <div class="col-3">
+                    <a class="text-muted" href="{% url 'edit_hora_extra' registro_hora.id%}">
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ registro_hora }}</h5>
+                                <p class="card-text">{{ registro_hora.horas }} horas</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+        </div>
+        
     {% endif %}
 
 {% endblock %}
